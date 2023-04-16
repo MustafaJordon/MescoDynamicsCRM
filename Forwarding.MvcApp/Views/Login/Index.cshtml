@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FORWARDING - Login Page</title>
+    <link href="@Url.Content("~/Content/CSS/login.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/utilities/jquery-1.10.2.js")"></script>
+    <script src="@Url.Content("~/Scripts/utilities/ga.js")"></script>
+    <script src="@Url.Content("~/Scripts/login.js")"></script>
+
+</head>
+<body>
+    <!--WRAPPER-->
+    <div id="wrapper">
+        <!--SLIDE-IN ICONS-->
+        <div class="user-icon"></div>
+        <div class="pass-icon"></div>
+        <!--END SLIDE-IN ICONS-->
+        <!--LOGIN FORM-->
+        <form id="login-form" method="post" action="@Url.Action("CheckIsValidUser", "Login")" name="login-form" class="login-form">
+            <!--HEADER-->
+            <div class="header">
+                <!--TITLE-->
+                <h1>Login Form</h1>
+                <!--END TITLE-->
+                <!--DESCRIPTION-->
+                <span>[ Welcome to IST software. ]
+                    <br />
+                    Fill out the form below to login</span>
+                <!--END DESCRIPTION-->
+            </div>
+            <!--END HEADER-->
+            <!--CONTENT-->
+            <div class="content">
+                <!--USERNAME-->
+                <input type="text" id="txtUserName" class="input username" value="Username" onfocus="this.value=''" name="username" style="text-transform:uppercase" />
+                <!--END USERNAME-->
+                <!--PASSWORD-->
+                <input type="password" id="txtPassword" class="input password" value="Password" onfocus="this.value=''" name="password" />
+                <!--END PASSWORD-->
+                <br /> <br />
+                <fieldset style="border: 2px solid #fff;border-radius: 5px;">
+                    <legend>&nbsp;Login as&nbsp;</legend><br />
+                    &nbsp;&nbsp;<input checked type="radio" id="cbIsUSer" name="loginaa" /> <span style="font-size:15px;">&nbsp; Employee &nbsp;</span>
+                    <input type="radio" id="cbIsCustomer" name="loginaa" /><span style="font-size:15px;">&nbsp; Client Portal &nbsp;</span>
+                    <br /><br />
+                    <span id="lblErrorMessage" style="font-size: 11px; color: red;"></span>
+                </fieldset>
+            </div>
+            <!--END CONTENT-->
+            <!--FOOTER-->
+            <div class="footer">
+                <!--LOGIN BUTTON-->
+                <a id="aResetPassword" href="" style="color:blue">Forgot Password</a> 
+                <input type="button" id="CheckIsValidUser" name="CheckIsValidUser" class="button" value="login" /><!--END LOGIN BUTTON-->
+                <div id="copyright">
+                    <img src="@Url.Content("~/Content/images/Company_logo.png")" alt="IST logo" style="float: left;" />
+                    <div class="m-t">
+                        Copyright &copy; 2020<a href="http://www.istegy.com" target="_blank">InfoSysTech</a>
+                        @*<br />
+                        Built on*@ 
+                        <a id="CheckIsValidUser_PageDirectly" style="color:blueviolet">@*Page Directly*@</a>                    </div>
+                </div>
+            </div>
+            <!--END FOOTER-->
+        </form>
+        <!--END LOGIN FORM-->
+    </div>
+    <!--END WRAPPER-->
+    <!--GRADIENT-->
+    <div class="gradient"></div>
+    <!--END GRADIENT-->
+</body>
+</html>
+

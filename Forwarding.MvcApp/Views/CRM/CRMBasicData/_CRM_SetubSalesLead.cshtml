@@ -1,0 +1,103 @@
+﻿<!-- start breadcrumb  -->
+<ul id="ul-breadcrumb" class="breadcrumb no-border no-radius b-b b-light pull-in">
+    <li>
+        <a id="hl-homepage" href="javascript:void(0);">
+            <i class="fa fa-home icon-home"></i><span>@Forwarding.MvcApp.App_Resources.App_Resources.HomePage</span>
+        </a>
+    </li>
+    <li>
+        <a id="MasterData" href="javascript:void(0);" onclick="LoadViews('CRM')">
+            @Forwarding.MvcApp.App_Resources.App_Resources.CRM
+        </a>
+    </li>
+    <li>
+        <a id="CRMBasicData" href="javascript:void(0);" onclick="LoadViews(id)">
+            @Forwarding.MvcApp.App_Resources.App_Resources.CRMBasicData
+        </a>
+    </li>
+    <li class="active">Setub invalid sales lead</li>
+</ul>
+<!-- end breadcrumb  -->
+
+<div id="div-SetubSalesLead">
+    <div id="div-Data">
+        <div id="div-Options">
+            <div id="div-Action" class="radius-top-left-right">
+            </div>
+        </div>
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                <h3 class="m-b-none">
+                    Setub invalid sales lead
+                </h3>
+            </header>
+            <!--Region the searh, delete, addnew-->
+            <div class="row text-sm wrapper hidden-print ">
+                <div id="div-main-options" class="col-sm-12 m-b-xs">
+                    <div class="form-group col-sm-3">
+                        <label># Months</label>
+                        <input id="txtNoMonths" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" type="number" class="input-sm form-control" binding-name="SearchPlaceHolder" binding-prop="placeholder" placeholder="">
+                    </div>
+                    <div class="form-group col-sm-1 m-t-md">
+                        <button type="button" id="btnCalculate" class="btn btn-lightblue btn-sm swapChildrenClass" onclick="SetubSalesLead_Calculate();">
+                            <b>&nbsp;Calculate&nbsp;</b>
+                        </button>
+                    </div>
+                    <div class="form-group col-sm-1 m-t-md">
+                        <button type="button" id="btnSave" class="btn btn-primary btn-sm swapChildrenClass" onclick="SetubSalesLead_Save();">
+                            <b>&nbsp;Save&nbsp;</b>
+                        </button>
+                    </div>
+                </div>
+              
+            </div>
+            <!--Region the searh, delete, addnew-->
+            <!--Region: table header-->
+            <div class="table-responsive">
+                <table id="tblSetubSalesLead" class="table table-striped b-t b-light text-sm  table-hover">
+                    <thead>
+                        <tr>
+                            <th id="ID" style="width:5%;">
+                                <input id="cb-CheckAll" type="checkbox" />
+                            </th>
+                            <th>Client Name</th>
+                            <th>Last Action Date</th>
+                            <th>Action</th>
+                            <th>Days To Last Action</th>
+                            <th>Not Valid Days</th>
+                            <th>Valid</th>
+                            <th class="rounded-right hide"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <!--Region: table header-->
+            <!--Region: footer-->
+            <footer class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-4 hidden-xs">
+                        <select id="select-page-size" class="input-sm form-control input-s-sm inline">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                        <button id="btn-applypaging" class="btn btn-sm btn-default" type="button">
+                            @Forwarding.MvcApp.App_Resources.App_Resources.Apply
+                        </button>
+                    </div>
+                    <div id="div-Text-Total" class="col-sm-4 text-center">
+                        <small class="text-muted inline m-t-sm m-b-sm">
+                            @Forwarding.MvcApp.App_Resources.App_Resources.Showing
+                            <span id="spn-first-page-row"></span>- <span id="spn-last-page-row"></span> @Forwarding.MvcApp.App_Resources.App_Resources.Of
+                            <span id="spn-total-count"></span> @Forwarding.MvcApp.App_Resources.App_Resources.Items
+                        </small>
+                    </div>
+                    <div id="div-Pager" class="col-sm-4 text-right text-center-xs float-right"></div>
+                </div>
+            </footer>
+            <!--Region: footer-->
+        </section>
+    </div>
+</div>
+

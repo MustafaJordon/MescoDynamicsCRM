@@ -1,0 +1,84 @@
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\Forwarding.MvcApp.dll.config
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\Forwarding.MvcApp.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\Forwarding.MvcApp.pdb
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\fr\Forwarding.MvcApp.resources.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\ar\Forwarding.MvcApp.resources.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\AutoMapper.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\BouncyCastle.Crypto.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\EPPlus.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\EPPlus.Interfaces.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\EPPlus.System.Drawing.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\MoreLinq.Portable.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\OpenHtmlToPdf.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\QRCoder.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Buffers.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Json.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Memory.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Numerics.Vectors.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Threading.Tasks.Extensions.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\AutoMapper.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\BouncyCastle.Crypto.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\EPPlus.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\MoreLinq.Portable.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Buffers.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Json.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Memory.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Numerics.Vectors.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\bin\System.Threading.Tasks.Extensions.xml
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.csprojResolveAssemblyReference.cache
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.csproj.ResolveComReference.cache
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.App_Resources.App_Resources.resources
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.App_Resources.App_Resources.fr.resources
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.App_Resources.App_Resources.ar.resources
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.csproj.GenerateResource.Cache
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\fr\Forwarding.MvcApp.resources.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\ar\Forwarding.MvcApp.resources.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.dll
+D:\TFS-Projects\ForwardingLogis\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.pdb
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\Forwarding.MvcApp.dll.config
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\Forwarding.MvcApp.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\Forwarding.MvcApp.pdb
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\fr\Forwarding.MvcApp.resources.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\ar\Forwarding.MvcApp.resources.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\AutoMapper.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\BouncyCastle.Crypto.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\EPPlus.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\EPPlus.Interfaces.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\EPPlus.System.Drawing.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\MoreLinq.Portable.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\OpenHtmlToPdf.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\QRCoder.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Buffers.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Json.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Memory.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Numerics.Vectors.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Threading.Tasks.Extensions.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\AutoMapper.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\BouncyCastle.Crypto.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\EPPlus.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\MoreLinq.Portable.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Buffers.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Json.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Memory.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Numerics.Vectors.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\bin\System.Threading.Tasks.Extensions.xml
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.csproj.ResolveComReference.cache
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.App_Resources.App_Resources.resources
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.App_Resources.App_Resources.fr.resources
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.App_Resources.App_Resources.ar.resources
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.csproj.GenerateResource.Cache
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\fr\Forwarding.MvcApp.resources.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\ar\Forwarding.MvcApp.resources.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.dll
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.pdb
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.csproj.AssemblyReference.cache
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.csproj.CoreCompileInputs.cache
+D:\IST-data\Projects\API\Microsoft Dynamics CRM\Forwarding.Solution\Forwarding.MvcApp\obj\Debug\Forwarding.MvcApp.csproj.CopyComplete

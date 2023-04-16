@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/04/2019 19:31:18" ReportInfo.Modified="05/11/2022 02:36:05" ReportInfo.CreatorVersion="2018.3.14.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqFTNUVfpTsh253xB9nCgYukkUk80d17l8SKXHGUec5oDTro2g6FzEADUwnRJvMO+GgIfhReNh2wmnVFkIPhX5LVMKXI/wzBLpYPC/Reg6MtnZ7fRUpeJgod7XaDkkcmP+Ao7pl9JW02CL9+fMKeu7rwdnrXXrS5DRTnsnixPm5I2L7xcBOpQGwTz5OB5w29sze9dpad0NjvAb/RgjS9TUkQ==">
+      <TableDataSource Name="Table1" Alias="Rep_WH_ReleaseOrder" DataType="System.Int32" Enabled="true" SelectCommand="exec Rep_WH_ReleaseOrder @ReleaseOrderID">
+        <Column Name="OperationNumber" DataType="System.String"/>
+        <Column Name="MasterBL" DataType="System.String"/>
+        <Column Name="ContainerNumber" DataType="System.String"/>
+        <Column Name="HouseNumber" DataType="System.String"/>
+        <Column Name="Consignee" DataType="System.String"/>
+        <Column Name="BookingParty" DataType="System.String"/>
+        <Column Name="StorageLocation" DataType="System.String"/>
+        <Column Name="EntryDate" DataType="System.DateTime"/>
+        <Column Name="ContainerType" DataType="System.String"/>
+        <Column Name="GrossWeight" DataType="System.Decimal"/>
+        <Column Name="NetWeight" DataType="System.Decimal"/>
+        <Column Name="Packages" DataType="System.String"/>
+        <Column Name="DescriptionOfGoods" DataType="System.String"/>
+        <Column Name="StorageEndDate" DataType="System.DateTime"/>
+        <Column Name="ReleaseNumber" DataType="System.String"/>
+        <Column Name="CouponNumber" DataType="System.String"/>
+        <Column Name="CertificationNumber" DataType="System.String"/>
+        <Column Name="Remarks" DataType="System.String"/>
+        <Column Name="ReleasedBy" DataType="System.String"/>
+        <Column Name="ReleasingDate" DataType="System.DateTime"/>
+        <Column Name="ReleaseNoteName" DataType="System.String"/>
+        <Column Name="ReleaseNoteDetails" DataType="System.String"/>
+        <Column Name="OperationID" DataType="System.Int64"/>
+        <Column Name="ContainerID" DataType="System.Int64"/>
+        <Column Name="HouseBillID" DataType="System.Int64"/>
+        <Column Name="ConsigneeID" DataType="System.Int32"/>
+        <Column Name="BookingPartyID" DataType="System.Int32"/>
+        <Column Name="InventoryID" DataType="System.Int64"/>
+        <Column Name="ReleaseOrderID" DataType="System.Int64"/>
+        <Column Name="Volume" DataType="System.Decimal"/>
+        <CommandParameter Name="@ReleaseOrderID" DataType="12" Expression="[ReleaseOrderID]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="ReleaseOrderID" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="112.64"/>
+    <PageHeaderBand Name="PageHeader1" Top="116.64" Width="718.2" Height="416.92">
+      <TextObject Name="Text2" Left="23.88" Top="387.6" Width="217.83" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="Release Note" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text4" Left="239.99" Top="387.6" Width="456.44" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="Note Details" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text20" Left="354.74" Top="10.61" Width="119.25" Height="26.47" Text="إذن صرف رقم" HorzAlign="Right" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text5" Left="229.66" Top="10.61" Width="119.25" Height="26.47" Text="[Rep_WH_ReleaseOrder.ReleaseNumber]" HorzAlign="Right" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text21" Left="606.43" Top="92.38" Width="87.8" Height="26.47" Text="رقم العملية" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text22" Left="602.64" Top="124.16" Width="91.59" Height="26.47" Text="رقـم البـوليصـة" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text23" Left="606.43" Top="194.57" Width="87.8" Height="26.47" Text="عــدد الطـــرود" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text24" Left="233" Top="194.57" Width="88.11" Height="26.47" Text="الــــــــــــــوزن" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text25" Left="606.43" Top="261.05" Width="87.8" Height="26.47" Text="مكان التخزين" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text26" Left="606.43" Top="158.9" Width="87.8" Height="26.47" Text="إسـم العـميــــل" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text27" Left="233" Top="92.38" Width="88.11" Height="26.47" Text="رقـم الحـــاوية" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text28" Left="606.43" Top="227.33" Width="87.8" Height="26.47" Text="الــحــجــــــــــم" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text29" Left="606.43" Top="298.77" Width="87.8" Height="26.47" Text="رقم الشهادة" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text30" Left="606.43" Top="336.57" Width="87.8" Height="26.47" Text="رقم القسيمة" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text8" Left="346.96" Top="92.38" Width="253.83" Height="26.47" Text="[Rep_WH_ReleaseOrder.OperationNumber]" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text9" Left="7.52" Top="92.38" Width="222.43" Height="26.47" Text="[Rep_WH_ReleaseOrder.ContainerNumber]" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text10" Left="266.12" Top="124.16" Width="334.67" Height="26.47" Text="[Rep_WH_ReleaseOrder.HouseNumber]" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text11" Left="41.51" Top="158.14" Width="558.52" Height="26.47" Text="[Rep_WH_ReleaseOrder.Consignee]" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text12" Left="376.45" Top="194.57" Width="224.34" Height="26.47" Text="[Rep_WH_ReleaseOrder.Packages]" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text13" Left="7.52" Top="194.57" Width="222.43" Height="26.47" Text="[Rep_WH_ReleaseOrder.GrossWeight]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Arial, 12pt, style=Bold" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text14" Left="6.9" Top="261.05" Width="593.89" Height="26.47" Text="[Rep_WH_ReleaseOrder.StorageLocation]" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text15" Left="316.01" Top="298.77" Width="284.78" Height="26.47" Text="[Rep_WH_ReleaseOrder.CertificationNumber]" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text16" Left="316.01" Top="336.57" Width="284.78" Height="26.47" Text="[Rep_WH_ReleaseOrder.CouponNumber]" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text17" Left="376.45" Top="227.33" Width="224.34" Height="26.47" Text="[Rep_WH_ReleaseOrder.Volume]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Arial, 12pt, style=Bold" Trimming="EllipsisCharacter"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="537.56" Width="718.2" Height="18.9" DataSource="Table1">
+      <TextObject Name="Text1" Left="23.88" Width="215.55" Height="18.9" Border.Lines="All" Text="[Rep_WH_ReleaseOrder.ReleaseNoteName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text3" Left="239.99" Width="456.44" Height="18.9" Border.Lines="Right, Top, Bottom" Text="[Rep_WH_ReleaseOrder.ReleaseNoteDetails]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="560.46" Width="718.2" Height="218.5">
+      <TextObject Name="Text6" Left="80.14" Top="16.61" Width="617" Height="40.11" Text="برجـــاء التكـــرم بصـــرف مـشــمـــول البــوليـصــــة المـوضـحـــة عــاليـــــــه حيث أن العميل قام بسداد مصاريف الأرضيات حتى تاريخ&#13;&#10;" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text7" Left="338.57" Top="35.47" Width="230.61" Height="20.42" Text="[Rep_WH_ReleaseOrder.ReleasingDate]" Format="Custom" Format.Format="yyyy/MM/dd" HorzAlign="Right" Font="Arial, 12pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="782.96" Width="718.2" Height="18.9">
+      <TextObject Name="Text19" Left="9.45" Width="510.3" Height="18.9" Text="[Date]" Format="Date" Format.Format="d" VertAlign="Center"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

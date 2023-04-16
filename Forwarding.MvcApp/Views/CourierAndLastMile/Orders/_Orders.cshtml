@@ -1,0 +1,573 @@
+﻿<!-- start breadcrumb  -->
+<ul id="ul-breadcrumb" class="breadcrumb no-border no-radius b-b b-light pull-in">
+    <li>
+        <a id="hl-homepage" href="javascript:void(0);">
+            <i class="fa fa-home icon-home"></i><span>@Forwarding.MvcApp.App_Resources.App_Resources.HomePage</span>
+        </a>
+    </li>
+    <li>
+        <a id="CourierAndLastMile" href="javascript:void(0);" onclick="LoadViews('LastMileOrders')">
+            @Forwarding.MvcApp.App_Resources.App_Resources.CourierAndLastMile
+        </a>
+    </li>
+    <li>
+        <a id="LastMileOrders" href="javascript:void(0);" onclick="LoadViews('LastMileOrders')">
+            @Forwarding.MvcApp.App_Resources.App_Resources.LastMileOrders
+        </a>
+    </li>
+    <li class="active">@Forwarding.MvcApp.App_Resources.App_Resources.Orders</li>
+</ul>
+<!-- end breadcrumb  -->
+
+<div id="div-Orders">
+    <div id="div-Data">
+        <div id="div-Options">
+            <div id="div-Action" class="radius-top-left-right">
+            </div>
+        </div>
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                <h3 class="m-b-none">
+                    @Forwarding.MvcApp.App_Resources.App_Resources.Orders
+                </h3>
+            </header>
+            <!--Region the searh, delete, addnew-->
+            <div class="row text-sm wrapper hidden-print m-t-n-sm swapChildrenClass">
+
+            </div>
+
+            <div class="row text-sm wrapper hidden-print m-t-n-sm swapChildrenClass">
+                <div class="swapChildrenClass m-t-n">
+                    <div class="form-group col-sm-2">
+                        <label>@Forwarding.MvcApp.App_Resources.App_Resources.From</label> @*class="control-label col-sm-2 m-t-xs" for="txtFromDate"*@
+                        <div>
+                            @*class="col-sm-10"*@
+                            <input id="txtFromDate" tabindex="30" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" readonly="readonly" style="background-color:white; cursor:text;" class="form-control datepicker-input input-sm" data-required="false" data-date-format="dd/mm/yyyy" placeholder="@Forwarding.MvcApp.App_Resources.App_Resources.SelectFromMenu">
+                        </div>
+                    </div>
+                    <div class="form-group  col-sm-2">
+                        <label>Order No</label>
+                        <input id="txtSearchOrderNo" tabindex="500" type="text" onfocus="CheckValueIsInteger(id);" onkeypress="    CheckValueIsInteger(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="Order No" data-required="false" />
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>@Forwarding.MvcApp.App_Resources.App_Resources.To</label>  @*class="control-label col-sm-2 m-t-xs" for="txtToDate"*@
+                        <div>
+                            @*class="col-sm-10"*@
+                            <input id="txtToDate" tabindex="30" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" readonly="readonly" style="background-color:white; cursor:text;" class="form-control datepicker-input input-sm" data-required="false" data-date-format="dd/mm/yyyy" placeholder="@Forwarding.MvcApp.App_Resources.App_Resources.SelectFromMenu">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>@Forwarding.MvcApp.App_Resources.App_Resources.Customer</label>
+                        <input id="txtSearchCustomer" tabindex="600" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="50" placeholder="" data-required="false" style="text-transform:uppercase">
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>@Forwarding.MvcApp.App_Resources.App_Resources.City</label>
+                        <input id="txtSearchCity" tabindex="600" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="50" placeholder="" data-required="false" style="text-transform:uppercase">
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>@Forwarding.MvcApp.App_Resources.App_Resources.Region</label>
+                        <input id="txtSearchRegion" tabindex="700" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="50" placeholder="" data-required="false" style="text-transform:uppercase">
+                    </div>
+                </div>
+                    <div class="swapChildrenClass m-t-n">
+                        <div class="form-group col-sm-2">
+                            <label>Company Name</label>
+                            <input id="txtSearchCompanyName" tabindex="800" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="50" placeholder="" data-required="false" style="text-transform:uppercase">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Warehouse Name</label>
+                            <input id="txtSearchWarehouseName" tabindex="900" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="50" placeholder="" data-required="false" style="text-transform:uppercase">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Order Type</label>
+                            <select id="slOrderType" tabindex="300" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="true">
+                                <option value="0">Select All</option>
+                                <option value="1">Last Mile</option>
+                                <option value="2">Courier</option>
+                            </select>
+                        </div>
+                    </div>
+           
+                <div class="row text-sm wrapper hidden-print m-t-n-sm swapChildrenClass" style="padding-top:15px; padding-left:15px;">
+                    <div class="swapChildrenClass m-t-n">
+
+                        <div class=" col-sm-4 swapChildrenClass m-t-md">
+                            <button id="btn-Search" type="button" class="btn btn-lightblue btn-sm swapChildrenClass" onclick="Orders_LoadingWithPaging();"><i class="fa fa-search"></i><b>&nbsp;@Forwarding.MvcApp.App_Resources.App_Resources.Search&nbsp;</b></button>
+                            <button id="btn-NewAdd" type="button" class="btn btn-warning btn-sm swapChildrenClass" data-toggle="modal"><i class="fa fa-plus"></i><b>&nbsp;@Forwarding.MvcApp.App_Resources.App_Resources.New&nbsp;</b></button>
+                            @*<button id="btn-Delete" type="button" class="btn btn-sm btn-danger swapChildrenClass"><i class="fa fa-trash-o"></i><b>&nbsp;@Forwarding.MvcApp.App_Resources.App_Resources.Delete&nbsp;</b></button>*@
+                            @*<button id="btn-PermanentDelete" type="button" onclick="Orders_DeleteList('D');" class="btn btn-sm btn-info swapChildrenClass"><i class="fa fa-ban"></i><b>&nbsp;@Forwarding.MvcApp.App_Resources.App_Resources.PermanentDelete&nbsp;</b></button>*@
+                        </div>
+                        @*<div class="col-sm-2"></div>*@
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Region the searh, delete, addnew-->
+            <!--Region: table header-->
+            <div class="table-responsive  m-t-n" style="font-size:80%;">
+                <table id="tblOrders" class="table table-striped b-t b-light text-sm  table-hover">
+                    <thead>
+                        <tr>
+                            <th id="ID">
+                                <input id="cb-CheckAll" type="checkbox" />
+                            </th>
+                            <th>Order No</th>
+                            <th>Order Date</th>
+                            <th>Order Type</th>
+                            <th>Customer Name</th>
+                            <th>City</th>
+                            <th>Region</th>
+                            <th>Order .Status</th>
+                            <th class="rounded-right"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <!--Region: table header-->
+            <!--Region: footer-->
+            <footer class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-4 hidden-xs">
+                        <select id="select-page-size" class="input-sm form-control input-s-sm inline">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                        <button id="btn-applypaging" class="btn btn-sm btn-default" type="button">
+                            @Forwarding.MvcApp.App_Resources.App_Resources.Apply
+                        </button>
+                    </div>
+                    <div id="div-Text-Total" class="col-sm-4 text-center">
+                        <small class="text-muted inline m-t-sm m-b-sm">
+                            @Forwarding.MvcApp.App_Resources.App_Resources.Showing
+                            <span id="spn-first-page-row"></span>- <span id="spn-last-page-row"></span> @Forwarding.MvcApp.App_Resources.App_Resources.Of
+                            <span id="spn-total-count"></span> @Forwarding.MvcApp.App_Resources.App_Resources.Items
+                        </small>
+                    </div>
+                    <div id="div-Pager" class="col-sm-4 text-right text-center-xs float-right"></div>
+                </div>
+            </footer>
+            <!--Region: footer-->
+        </section>
+    </div>
+</div>
+
+
+
+<!-- OrdersModal  -->
+<div class="modal fade" id="OrdersModal" tabindex="-1" data-keyboard="true" data-backdrop="false" role="dialog" aria-labelledby="OrdersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modalwidth-100">
+        <div class="modal-content m-t-n-lg">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <div id="hExportedTable" class="hide"></div>
+                <h3 class="m-b-none swapChildrenClass">
+                    <span>&nbsp;Order Details&nbsp;</span><label id="lblShown" purpose="dynamicLabel" @*to be cleared*@ class="static-text-primary"></label>
+                </h3>
+            </div>
+            <!-- Region Add / Edit Region Form -->
+            <div class="modal-body">
+                <div class="span7 form vertical-mode" id="Orders-form">
+                    <fieldset>
+                        <div class="form-group pull-in  has-error clearfix">
+                            <input id="hID" type="hidden" />
+                            <!-- start alert message region -->
+                            @*<div class="alert alert-danger div-error">
+                                    @Forwarding.MvcApp.App_Resources.App_Resources.ErrorMessage
+                                </div>*@
+                            <!-- end alert message region -->
+                            <!-- Region Add / Edit Region Form -->
+                            <div>
+                                <div class="swapChildrenClass row col-sm-12" >
+                                   
+                                    <div class="form-group col-sm-1 m-l-md">
+                                        <input tabindex="1570" type="radio" name="namecbLastMileOrCourier" id="cbLastMile" checked="checked" onchange="ActivateLastMile();" onfocus="    DisableEnterKey(id);" onkeypress="    DisableEnterKey(id);">&nbsp; LastMile
+                                    </div>
+                                    <div class="form-group col-sm-1  ">
+                                        <input tabindex="1570" type="radio" name="namecbLastMileOrCourier" id="cbCourier" onchange="ActivateCourier();" onfocus="    DisableEnterKey(id);" onkeypress="    DisableEnterKey(id);">&nbsp;Courier
+                                    </div>
+                                </div>
+                                <div style="margin:20px" class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Customer Details</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <h5 class=""><b>Customer Info</b></h5>
+                                        <div class="row">
+                                            <div class="col-sm-4 m-t-md" style="padding: 0;">
+                                             
+                                                <div id="div-search-controls" class="input-group col-sm-12">
+                                                    @*<label>@Forwarding.MvcApp.App_Resources.App_Resources.Search</label>*@
+                                                    <input id="txtSearchCustomerName" tabindex="400" type="text" onfocus="DisableEnterKeyWithSearch(id);" onkeypress="DisableEnterKeyWithSearch(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="Search By Customer Name Or Code" data-required="false" style="text-transform:uppercase">
+                                                    <span class="input-group-btn">
+                                                        <button id="btn-search" class="btn btn-sm btn-primary" type="button" onclick="CustomerEnterEvent(0);"><i class="fa fa-search"></i></button>
+                                                    </span>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Customer</label>
+                                                <div id="div-search-controls" class="input-group col-sm-12" style="padding: 0;">
+                                                    <select id="slCustomer" onchange="GetCustomerAddress(0); LoadCustomerInfo();" tabindex="700" class="form-control input-sm" onfocus="    DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="false"></select>
+                                                    <span class="input-group-btn">
+                                                        <button id="btn-NewAddCustomer" class="btn btn-warning btn-sm m-l-n-lg" data-toggle="modal" onclick="Customer_New();"><i class="fa fa-remove"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Address</label>
+                                                <div id="div-search-controls" class="input-group col-sm-12" style="padding: 0;">
+                                                    <select id="slAddress" onchange="LoadAddressInfo();" tabindex="700" class="form-control m-b input-sm" onfocus="    DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="false"></select>
+                                                    <span class="input-group-btn">
+                                                        <button id="btn-NewAddAddress" class="btn btn-warning btn-sm m-l-n-lg" data-toggle="modal" onclick="Address_New();"><i class="fa fa-remove"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+    
+                                        </div>
+                                        <div class="row">
+                                            @*This div is to make the buttons clickable*@
+                                            <div class="col-sm-2">
+                                                <label>Customer Code</label>
+                                                <input id="txtCustomerCode" disabled="disabled" tabindex="500" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Name</label>
+                                                <input id="txtCustomerName" tabindex="400" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="true" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Phone</label>
+                                                <input id="txtPhone" tabindex="500" type="text" onfocus="CheckValueIsInteger(id);" onkeypress="    CheckValueIsInteger(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="true" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Email</label>
+                                                <input id="txtEmail" tabindex="600" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" />
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <h5 class=""><b>Address Info</b></h5>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.City</label>
+                                                <select id="slCity" tabindex="700" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="true" onchange="    LoadRegionByCity(0, null);"></select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Region</label>
+                                                <select id="slRegion" onchange="LoadDeliveryRepresentativeByRegionID(0);" tabindex="800" class="form-control m-b input-sm" onfocus="    DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="true"></select>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label>Runner</label>
+                                                <select id="slDelivery" tabindex="500" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="false"></select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label>Street Name</label>
+                                                <input id="txtStreetName" tabindex="600" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="true" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Building No</label>
+                                                <input id="txtBuildingNo" tabindex="600" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);"   class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Floor No</label>
+                                                <input id="txtFloorNo" tabindex="600" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);"  class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Apartment No</label>
+                                                <input id="txtApartmentNo" tabindex="600" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);"     class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <h5 class=""> <b>Package Details</b>    </h5>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.PackageType</label>
+                                                <select id="slPackageType" tabindex="300" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="true"></select>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Number Of Items</label>
+                                                <input id="txtNumberOfItems" tabindex="400" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm" maxlength="50" placeholder="" data-required="true" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="form-group col-sm-4">
+                                                <label>Package Description</label>
+                                                <input id="txtPackageDescription" tabindex="600" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="20000" placeholder="" data-required="true" style="text-transform:uppercase" />
+                                             @*   <textarea id="txtPackageDescription" maxlength="1000" class="form-control col-sm-12 textDivOperations input-sm" data-required="true" style="text-transform:uppercase; height:100px!Important;"></textarea>*@
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-sm-2">
+                                                <label>Estimated Arrival Date</label> @*class="control-label col-sm-2 m-t-xs" for="txtFromDate"*@
+                                                <div>
+                                                    @*class="col-sm-10"*@
+                                                    <input id="txtEstimatedArrivalDateToStore" tabindex="30" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" readonly="readonly" style="background-color:white; cursor:text;" class="form-control datepicker-input input-sm" data-required="true" data-date-format="dd/mm/yyyy" placeholder="@Forwarding.MvcApp.App_Resources.App_Resources.SelectFromMenu">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-2">
+                                                <label style="font-size: 12px;">Estimated Delivery From Date</label>  @*class="control-label col-sm-2 m-t-xs" for="txtToDate"*@
+                                                <div>
+                                                    @*class="col-sm-10"*@
+                                                    <input id="txtEstimatedDeliveryDateFrom" tabindex="30" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" readonly="readonly" style="background-color:white; cursor:text;" class="form-control datepicker-input input-sm" data-required="true" data-date-format="dd/mm/yyyy" placeholder="@Forwarding.MvcApp.App_Resources.App_Resources.SelectFromMenu">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-2">
+                                                <label>Estimated Delivery To Date</label>  @*class="control-label col-sm-2 m-t-xs" for="txtToDate"*@
+                                                <div>
+                                                    <input id="txtEstimatedDeliveryDateTo" tabindex="30" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" readonly="readonly" style="background-color:white; cursor:text;" class="form-control datepicker-input input-sm" data-required="true" data-date-format="dd/mm/yyyy" placeholder="@Forwarding.MvcApp.App_Resources.App_Resources.SelectFromMenu">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label>Main Warehouse</label>
+                                                <select id="slMainWarehouse" onchange="LoadWarehouseByMainWarehouses();" tabindex="500" class="form-control m-b input-sm" onfocus="    DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="false">
+                                                    <option value="0">Select Main Warehouse</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label> Warehouse</label>
+                                                <select id="slWarehouse" onchange="LoadAreaByWarehouse();" tabindex="500" class="form-control m-b input-sm" onfocus="    DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="true">
+                                                    <option value="0">Select Warehouse</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>Area</label>
+                                                <select id="slArea" onchange="LoadRowByArea();" tabindex="500" class="form-control m-b input-sm" onfocus="    DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="false">
+                                                    <option value="0">Select Area</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>Row</label>
+                                                <select id="slRow" tabindex="500" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="false">
+                                                    <option value="0">Select Row</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row m-t-sm">
+                                            <div class="form-group col-sm-1">
+                                                <label>Gross(KG)</label>
+                                                <input type="text" id="txtGrossWeight" autocomplete="off" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm classMandatoryForNIL" data-required="false" maxlength="11" placeholder="0.0">
+                                            </div>
+                                            <div class="form-group col-sm-1">
+                                                <label>NetWt(KG)</label>
+                                                <input type="text" id="txtNetWeight" autocomplete="off" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm classMandatoryForNIL" data-required="false" maxlength="11" placeholder="0.0">
+                                            </div>
+                                            <div class="form-group col-sm-1">
+                                                <label>Width(CM)</label>
+                                                <input type="text" id="txtWidth" autocomplete="off" onchange="Order_CalculateVolume();" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm classMandatoryForNIL" data-required="false" maxlength="11" placeholder="0.0">
+                                            </div>
+                                            <div class="form-group col-sm-1">
+                                                <label>Depth(CM)</label>
+                                                <input type="text" id="txtDepth" autocomplete="off" onchange="Order_CalculateVolume();" onkeypress="    CheckValueIsDecimal(id);" onfocus="    CheckValueIsDecimal(id);" onblur="    CheckDecimalFormat(id);" class="form-control parsley-validated input-sm classMandatoryForNIL" data-required="false" maxlength="11" placeholder="0.0">
+                                            </div>
+                                            <div class="form-group col-sm-1">
+                                                <label>Height(CM)</label>
+                                                <input type="text" id="txtHeight" autocomplete="off" onchange="Order_CalculateVolume();" onkeypress="    CheckValueIsDecimal(id);" onfocus="    CheckValueIsDecimal(id);" onblur="    CheckDecimalFormat(id);" class="form-control parsley-validated input-sm classMandatoryForNIL" data-required="false" maxlength="11" placeholder="0.0">
+                                            </div>
+                                            <div class="form-group col-sm-1">
+                                                <label>Vol.(CBM)</label>
+                                                <input type="text" id="txtVolume" autocomplete="off" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm classMandatoryForNIL" data-required="false" maxlength="11" placeholder="0.0">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div style="margin:20px" class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><b>Payment Details</b></h3>
+                                    </div>
+                                    <div class="panel-body">
+                                       
+
+                                        <div class="row m-t-sm">
+                                            <div class="col-sm-4">
+                                                <label>Payment Type</label>
+                                                <select id="slPaymentType" onchange="PaymentChange();" tabindex="700" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="true">
+                                                    <option value="0">Select</option>
+                                                    <option value="1">With Cash Collection (All)</option>
+                                                    <option value="2">With Cash Collection (Delivery only)</option>
+                                                    <option value="3">Without Cash Collection </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Cash Delivery</label>
+                                                <input id="txtCashDelivery" tabindex="400" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm" maxlength="50" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2  LastMile">
+                                                <label>Item Price</label>
+                                                <input id="txtItemPrice" tabindex="400" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm" maxlength="50" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <br />
+                                                <label class="swapChildrenClass" style="margin:8px"><input type="checkbox" id="cbTax" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);"><span>&nbsp;@Forwarding.MvcApp.App_Resources.App_Resources.Tax&nbsp;</span></label>
+                                            </div>
+                                        </div>
+                                        @*<h5 class="m-b-none"> <b>Pickup</b>    </h5>*@
+                                        <div class="row m-t-sm">
+                                            <div class="col-sm-4 ">
+                                                @*<label>@Forwarding.MvcApp.App_Resources.App_Resources.Search</label>
+                                                <input id="txtSearchCompany" tabindex="400" type="text" onfocus="DisableEnterKeyWithSearchCompany(id);" onkeypress="    DisableEnterKeyWithSearchCompany(id);" class="form-control parsley-validated input-sm" maxlength="1000" placeholder="Search By Company Code Or Name" data-required="false" style="text-transform:uppercase" />*@
+
+                                                <div id="div-search-controls" class="input-group col-sm-12 m-t-lg">
+                                                    <input id="txtSearchCompany" tabindex="400" type="text" onfocus="DisableEnterKeyWithSearchCompany(id);" onkeypress="    DisableEnterKeyWithSearchCompany(id);" class="form-control parsley-validated input-sm" maxlength="1000" placeholder="Search By Company Code Or Name" data-required="false" style="text-transform:uppercase" />
+                                                    <span class="input-group-btn">
+                                                        <button id="btn-search" class="btn btn-sm btn-primary" type="button" onclick="CompanyEnterEvent(0);"><i class="fa fa-search"></i></button>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-4 LastMile">
+                                                <label> Company </label>
+                                                <select id="slCompany" tabindex="500" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="true"></select>
+                                            </div>
+                                        </div>
+                                        <div class="row m-t-sm">
+                                            <div class="col-sm-4 LastMile">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Address</label>
+                                                <input id="txtPickupAddress" tabindex="400" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="1000" placeholder="" data-required="true" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2 hide">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Store</label>
+                                                <select id="slStore" tabindex="500" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="false"></select>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Order Reference</label>
+                                                <input id="txtOrderReference" tabindex="400" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="true" style="text-transform:uppercase" />
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        @*Customer 2 Start*@
+                                        <div class="Courier hide">
+                                            <hr /><hr />
+                                        <h5 class=""><b>Customer 2 Info</b></h5>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Search</label>
+                                                <input id="txtSearchCustomerName2" tabindex="400" type="text" onfocus="DisableEnterKeyWithSearch(id);" onkeypress="DisableEnterKeyWithSearch(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="Search By Customer Name Or Code" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Customer</label>
+                                                <div id="div-search-controls" class="input-group col-sm-12" style="padding: 0;">
+                                                    <select id="slCustomer2" onchange="GetCustomerAddress2(0); LoadCustomerInfo2();" tabindex="700" class="form-control input-sm" onfocus="    DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="false"></select>
+                                                    <span class="input-group-btn">
+                                                        <button id="btn-NewAddCustomer2" class="btn btn-warning btn-sm m-l-n-lg" data-toggle="modal" onclick="Customer_New2();"><i class="fa fa-remove"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Address</label>
+                                                <div id="div-search-controls" class="input-group col-sm-12" style="padding: 0;">
+                                                    <select id="slAddress2" onchange="LoadAddressInfo();" tabindex="700" class="form-control m-b input-sm" onfocus="    DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" data-required="false"></select>
+                                                    <span class="input-group-btn">
+                                                        <button id="btn-NewAddAddress2" class="btn btn-warning btn-sm m-l-n-lg" data-toggle="modal" onclick="Address_New2();"><i class="fa fa-remove"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row">
+                                            @*This div is to make the buttons clickable*@
+                                            <div class="col-sm-2">
+                                                <label>Customer Code</label>
+                                                <input id="txtCustomerCode2" disabled="disabled" tabindex="500" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Name</label>
+                                                <input id="txtCustomerName2" tabindex="400" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Phone</label>
+                                                <input id="txtPhone2" tabindex="500" type="text" onfocus="CheckValueIsInteger(id);" onkeypress="    CheckValueIsInteger(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Email</label>
+                                                <input id="txtEmail2" tabindex="600" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false"  />
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <h5 class=""><b>(Customer 2)Address Info</b></h5>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.City</label>
+                                                <select id="slCity2" tabindex="700" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="    DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="false"  onchange="LoadRegionByCity2(0, null);"></select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>@Forwarding.MvcApp.App_Resources.App_Resources.Region</label>
+                                                <select id="slRegion2" onchange="LoadDeliveryRepresentativeByRegionID2(0);" tabindex="800" class="form-control m-b input-sm" onfocus="    DisableBackspaceKey(id);" data-required="false"  onkeydown="    DisableBackspaceKey(id);" onkeypress="    DisableBackspaceKey(id);" ></select>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label>Runner</label>
+                                                <select id="slDelivery2" tabindex="500" class="form-control m-b input-sm" onfocus="DisableBackspaceKey(id);" onkeydown="DisableBackspaceKey(id);" onkeypress="DisableBackspaceKey(id);" data-required="false"></select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label>Street Name</label>
+                                                <input id="txtStreetName2" tabindex="600" type="text" onfocus="DisableEnterKey(id);" onkeypress="DisableEnterKey(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Building No</label>
+                                                <input id="txtBuildingNo2" tabindex="600" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Floor No</label>
+                                                <input id="txtFloorNo2" tabindex="600" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Apartment No</label>
+                                                <input id="txtApartmentNo2" tabindex="600" type="text" onkeypress="CheckValueIsDecimal(id);" onfocus="CheckValueIsDecimal(id);" onblur="CheckDecimalFormat(id);" class="form-control parsley-validated input-sm" maxlength="100" placeholder="" data-required="false" style="text-transform:uppercase" />
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        </div>
+                                        @*Customer 2 End*@
+
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+         
+
+                            </div>
+
+                       
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <!-- Endregion Add / Edit Region Form -->
+            <div class="modal-footer m-t-n-lg">
+                <button type="button" id="btnSave" disabled="disabled" class="btn btn-primary btn-sm swapChildrenClass" onclick="Orders_Save();">
+                    <span class="glyphicon glyphicon-save"></span><b>&nbsp;@Forwarding.MvcApp.App_Resources.App_Resources.Save&nbsp;</b>
+                </button>
+                <button type="button" id="btnSaveandNew" disabled="disabled" class="btn btn-primary btn-sm swapChildrenClass hide" onclick="Orders_Insert(true);">
+                    <span class="glyphicon glyphicon-save"></span><b>&nbsp;@Forwarding.MvcApp.App_Resources.App_Resources.SaveAndNew&nbsp;</b>
+                </button>
+                <button class="btnClose btn btn-link btn-sm" data-dismiss="modal" aria-hidden="true"><b>@Forwarding.MvcApp.App_Resources.App_Resources.Close</b></button><!--sherif: i added an id and the onclick fn go set the timelocked in the DB to null-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- EOF OrdersModal  -->
+<!-- Region Options & Template  -->
+<!-- Add / Edit Region Modal --> <!--data-keyboard="false" data-backdrop="false" to prevent modal closure on pressing escape and pressing outside the modal-->
+
