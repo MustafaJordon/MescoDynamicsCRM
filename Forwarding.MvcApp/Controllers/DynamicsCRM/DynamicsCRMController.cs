@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using Forwarding.MvcApp.Controllers.MasterData.API_Invoicing;
 using System.Windows.Ink;
+using Forwarding.MvcApp.Models.DynamicsCRM;
 
 namespace Forwarding.MvcApp.Controllers.DynamicsCRM
 {
@@ -864,9 +865,34 @@ namespace Forwarding.MvcApp.Controllers.DynamicsCRM
             }
         }
 
-        public bool ValidationCheck(JToken QuotationHeader, JToken CostLine, JToken SalesLine) //To be continued with the required validations
+        public bool ValidationCheck(JToken QuotationHeader, JToken CostLines, JToken SalesLines) //To be continued with the required validations
         {
             bool IsValidQuotation = true;
+            string missingFields = "";
+            if (QuotationHeader["_xollsp_commoditygroup_value"].ToString() == "")
+            {
+                IsValidQuotation = false;
+                missingFields += "Commodity";
+            }
+
+            if (!IsValidQuotation)
+            {
+                //Insert into crmLog (StatusCode = 2)
+                var record = new CVarcrmLog()
+                {
+                    CreatedON = DateTime.Now,
+                    StatusCode = 2,
+                    crmQuotationID = QuotationHeader["xollsp_tariffquoteid"].ToString(),
+                    ForwardingQuotationID = 0,
+                    MissingFields = missingFields,
+                    UserID = 0,
+                    OperationID = 0
+                };
+                var recordList = new List<CVarcrmLog>();
+                recordList.Add(record);
+                var log = new CcrmLog();
+                log.SaveMethod(recordList);
+            }
             return IsValidQuotation;
         }
 
@@ -1058,7 +1084,21 @@ namespace Forwarding.MvcApp.Controllers.DynamicsCRM
                 objCCustomizedDBCall.CallStringFunction(InsertQuery);
                 id = objCCustomizedDBCall.ExecuteQuery_Array($"select MAX(ID)ID from Quotations")[0];
                 objCCustomizedDBCall.CallStringFunction($"insert into crmIDs(crmTableName,ForwardingTableName,crmID,ForwardingID) values('xollsp_tariffquotes','Quotations','{Quotation["xollsp_tariffquoteid"]}',{id})");
-
+                //Insert into crmLog (StatusCode = 1)
+                var record = new CVarcrmLog()
+                {
+                    CreatedON = DateTime.Now,
+                    StatusCode = 1,
+                    crmQuotationID = Quotation["xollsp_tariffquoteid"].ToString(),
+                    ForwardingQuotationID = int.Parse(id),
+                    MissingFields = "",
+                    UserID = 0,
+                    OperationID = 0
+                };
+                var recordList = new List<CVarcrmLog>();
+                recordList.Add(record);
+                var log = new CcrmLog();
+                log.SaveMethod(recordList);
             }
             catch (Exception error)
             {

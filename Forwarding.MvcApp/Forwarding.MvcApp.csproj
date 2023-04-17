@@ -873,16 +873,7 @@
     <Compile Include="Models\Customized\vwStructureProfitabilityByCostCenterReport.cs" />
     <Compile Include="Models\Customized\vwStructureProfitabilityReport.cs" />
     <Compile Include="Models\DynamicsCRM\crmIDs.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmBranches.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmChargeTypes.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmCommodities.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmCountries.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmCurrencies.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmCustomers.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmIncoterms.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmMoveTypes.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmPorts.cs" />
-    <Compile Include="Models\DynamicsCRM\vwcrmUsers.cs" />
+    <Compile Include="Models\DynamicsCRM\crmLog.cs" />
     <Compile Include="Models\FA\Customized\FA_CalcualteDepreciateAll.cs" />
     <Compile Include="Models\FA\Customized\FA_DepreciateAll.cs" />
     <Compile Include="Models\FA\Customized\FA_ApproveAssets.cs" />
