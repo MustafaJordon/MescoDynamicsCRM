@@ -5587,6 +5587,15 @@ namespace Forwarding.MvcApp.App_Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dynamics CRM Log.
+        /// </summary>
+        public static string DynamicsCRMLog {
+            get {
+                return ResourceManager.GetString("DynamicsCRMLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {

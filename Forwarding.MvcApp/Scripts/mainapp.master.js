@@ -6401,6 +6401,11 @@ function LoadViews(pControlID, pRoleID, pUserID, pWhereClauseOverwriting, pQuota
             $.getScript(strServerURL + '/Scripts/Reports/Statistics/CustomersReport.js', function () { CustomersReport_Initialize(); });
             break;
         }
+        case "DynamicsCRMLog": {
+            FadePageCover(true);
+            $.getScript(strServerURL + '/Scripts/Reports/Statistics/DynamicsCRMLog.js', function () { DynamicsCRMLog_Initialize(); });
+            break;
+        }
         case "CustomsClearanceReport": {
             FadePageCover(true);
             $.getScript(strServerURL + '/Scripts/Reports/Statistics/CustomsClearanceReport.js', function () { CustomsClearanceReport_Initialize(); });

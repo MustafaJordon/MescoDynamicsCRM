@@ -118,6 +118,11 @@ namespace Forwarding.MvcApp
             routeTemplate: "api/DynamicsCRM/GetQuotationByQuotationNumber",
             defaults: new { controller = "DynamicsCRM", action = "GetQuotationByQuotationNumber" }
             );
+            config.Routes.MapHttpRoute(
+            name: "DynamicsCRMLog",
+            routeTemplate: "api/DynamicsCRMLog/LoadData",
+            defaults: new { controller = "DynamicsCRMLog", action = "LoadData" }
+            );
             #endregion
 
             #region Regions

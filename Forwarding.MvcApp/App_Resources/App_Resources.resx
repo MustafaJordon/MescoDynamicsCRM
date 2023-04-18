@@ -7215,4 +7215,7 @@
   <data name="ExportExcelWithDetailedCurrencies" xml:space="preserve">
     <value>Export Excel With Detailed Currencies</value>
   </data>
+  <data name="DynamicsCRMLog" xml:space="preserve">
+    <value>Dynamics CRM Log</value>
+  </data>
 </root>

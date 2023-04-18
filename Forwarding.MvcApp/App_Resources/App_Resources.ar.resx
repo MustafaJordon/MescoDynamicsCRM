@@ -6270,4 +6270,7 @@
   <data name="ChargeTypeName" xml:space="preserve">
     <value>اسم البند</value>
   </data>
+  <data name="DynamicsCRMLog" xml:space="preserve">
+    <value>Dynamics CRM Log</value>
+  </data>
 </root>
