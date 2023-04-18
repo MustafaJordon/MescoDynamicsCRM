@@ -707,7 +707,7 @@ function FillAlarms(pAlarmRows) {
             Anchors += ' </a> ';
         }
         else if (item.QuotationRouteID != 0) { //Request to create operation on quotation
-            Anchors += ' <a href="#" onclick="CreateOperationFromAlarm(' + item.EmailID + "," + item.QuotationRouteID + ',' + "'" + item.QuotationCode + "'" + ',' + "'" + item.Body + "'" + ');" class="media list-group-item" style="display: block;">';
+            Anchors += ' <a href="#" onclick="CreateOperationFromAlarm(' + item.EmailID + "," + item.QuotationRouteID + ',' + "'" + item.QuotationCode + "'" + ',' + "'" + item.Body + "'" + '); CallGETFunctionWithParameters(' + "'" + '/api/LocalEmails/RemoveAlarm' + "'" + ', { pRemoveAlarmEmailID: ' + item.EmailID + ' }, function() { LoadDefaults(' + "'" + '/api/Defaults/LoadAll' + "'" + ', ' + "'" + 'WHERE 1=1 ' + "'" + '); }, null);" class="media list-group-item" style="display: block;">';
             Anchors += '    <span class="media-body block m-b-none">Create Operation for Quot : <span>' + item.QuotationCode + '</span><br><small class="text-muted"> - Sender :' + item.SenderName + ' (' + item.SendingDateAndTime + ')</small></span>';
             Anchors += ' </a> ';
         }
@@ -6403,7 +6403,7 @@ function LoadViews(pControlID, pRoleID, pUserID, pWhereClauseOverwriting, pQuota
         }
         case "DynamicsCRMLog": {
             FadePageCover(true);
-            $.getScript(strServerURL + '/Scripts/Reports/Statistics/DynamicsCRMLog.js', function () { DynamicsCRMLog_Initialize(); });
+            $.getScript(strServerURL + '/Scripts/Administration/Logs/DynamicsCRMLog.js', function () { DynamicsCRMLog_Initialize(); });
             break;
         }
         case "CustomsClearanceReport": {

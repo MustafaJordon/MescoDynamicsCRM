@@ -547,12 +547,12 @@ function crmTest() {
             success: function (pData) {
                 debugger;
                 if (!(pData == null)) {
-                    pData = JSON.parse(pData);
+                    //pData = JSON.parse(pData);
                     swal("Inserted successfully!");
-                    LocalEmails_Send(pData);
+                    //LocalEmails_Send(pData);
                 }
                 else
-                    swal("Quotation already exists")
+                    swal("Quotation has missing fields")
                 //let accessToken = AuthResponse.access_token;
                 
 
@@ -567,54 +567,54 @@ function crmTest() {
     }
 }
 
-async function LocalEmails_Send(QuotationData) {
-    debugger;
-    var pCheckboxNameAttr = "cbAddedItemID";
-    var pParametersWithValues = {
-        pWhereClause: ' where 1=1'
-    }
-    var UsersIDs = await CallGETFunctionWithParameters("/api/Users/LoadAllIDs", pParametersWithValues
-        , function (pData) {
-            debugger;
-            var pSelectedItemsIDs = pData;
-            if (pSelectedItemsIDs == "")
-                swal("Sorry", "You have to select at least one receptionist.");
-            else { //send
-                FadePageCover(true);
-                var pParametersWithValues = {
-                    pUserIDs: pSelectedItemsIDs
-                    , pSubject: `New Quotation ${QuotationData.QuoteNumber} From Dynamics CRM`
-                    , pBody: `Quotation : ${QuotationData.QuoteNumber} is added from dynamics CRM`
-                    , pQuotationRouteID: QuotationData.MainRouteID
-                    , pPricingID: 0
-                    , pRequestOrReply: 0
-                    , pOperationID: ($("#slRegardingOperation").val() == undefined || $("#slRegardingOperation").val() == "" ? 0 : $("#slRegardingOperation").val())
-                    , pIsAlarm: true
-                    , pParentID: IsNull($('#hParentEmailID').val(), IsNull($('#hLocalEmailID').val(), "0"))
-                    , pEmailSource: 80
-                    , pIsSendNormalEmail: false
-                    //LoadWithPaging parameters
-                    , pWhereClauseForLoadWithPaging: ' Where 1=1'
-                    , pPageSize: $("#select-page-size").val()
-                    //pPageNumber is 1 coz its insert so it will be on the top
-                    , pPageNumber: 1 //$("#div-Pager li.active a").text() == "" ? 1 : $("#div-Pager li.active a").text() 
-                    , pOrderBy: "ID DESC"
-                };
-                CallGETFunctionWithParameters("/api/LocalEmails/SendEmail", pParametersWithValues
-                    , function (pData) {
-                        if (pData[0]) {
-                            swal("Success", "Sent Successfully.");
-                        }
-                        else
-                            swal("Sorry", "Connection failed, please try again.");
-                        FadePageCover(false);
-                    }
-                    , null);
-            }
-            return pData;
-            }
-        , null);   
-}
+//async function LocalEmails_Send(QuotationData) {
+//    debugger;
+//    var pCheckboxNameAttr = "cbAddedItemID";
+//    var pParametersWithValues = {
+//        pWhereClause: ' where 1=1'
+//    }
+//    var UsersIDs = await CallGETFunctionWithParameters("/api/Users/LoadAllIDs", pParametersWithValues
+//        , function (pData) {
+//            debugger;
+//            var pSelectedItemsIDs = pData;
+//            if (pSelectedItemsIDs == "")
+//                swal("Sorry", "You have to select at least one receptionist.");
+//            else { //send
+//                FadePageCover(true);
+//                var pParametersWithValues = {
+//                    pUserIDs: pSelectedItemsIDs
+//                    , pSubject: `New Quotation ${QuotationData.QuoteNumber} From Dynamics CRM`
+//                    , pBody: `Quotation : ${QuotationData.QuoteNumber} is added from dynamics CRM`
+//                    , pQuotationRouteID: QuotationData.MainRouteID
+//                    , pPricingID: 0
+//                    , pRequestOrReply: 0
+//                    , pOperationID: ($("#slRegardingOperation").val() == undefined || $("#slRegardingOperation").val() == "" ? 0 : $("#slRegardingOperation").val())
+//                    , pIsAlarm: true
+//                    , pParentID: IsNull($('#hParentEmailID').val(), IsNull($('#hLocalEmailID').val(), "0"))
+//                    , pEmailSource: 80
+//                    , pIsSendNormalEmail: false
+//                    //LoadWithPaging parameters
+//                    , pWhereClauseForLoadWithPaging: ' Where 1=1'
+//                    , pPageSize: $("#select-page-size").val()
+//                    //pPageNumber is 1 coz its insert so it will be on the top
+//                    , pPageNumber: 1 //$("#div-Pager li.active a").text() == "" ? 1 : $("#div-Pager li.active a").text() 
+//                    , pOrderBy: "ID DESC"
+//                };
+//                CallGETFunctionWithParameters("/api/LocalEmails/SendEmail", pParametersWithValues
+//                    , function (pData) {
+//                        if (pData[0]) {
+//                            swal("Success", "Sent Successfully.");
+//                        }
+//                        else
+//                            swal("Sorry", "Connection failed, please try again.");
+//                        FadePageCover(false);
+//                    }
+//                    , null);
+//            }
+//            return pData;
+//            }
+//        , null);   
+//}
 
 function Operations_CreateOperationFromQuotation(pData) {
     debugger;

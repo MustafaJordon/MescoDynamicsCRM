@@ -2005,7 +2005,7 @@
     <Content Include="Scripts\ReceiptsAndPayments\YardLinkTank\YardLinkTankInvoicePosting.js" />
     <Content Include="Scripts\ReceiptsAndPayments\YardLink\YardInvoicePosting.js" />
     <Content Include="Scripts\ReceiptsAndPayments\YardLink\YardLinkClients.js" />
-    <Content Include="Scripts\Reports\Statistics\DynamicsCRMLog.js" />
+    <Content Include="Scripts\Administration\Logs\DynamicsCRMLog.js" />
     <Content Include="Scripts\Reports\Statistics\CustomersReport.js" />
     <Content Include="Scripts\Reports\Statistics\CustomsClearanceReport.js" />
     <Content Include="Scripts\Reports\Statistics\ChargesWithoutInvoicesReport.js" />
@@ -3015,6 +3015,7 @@
     <Content Include="Views\ContainerTrackingGroup\ContainerTrackingTab\_OperationsACIDDetails.cshtml" />
     <Content Include="Views\SC\SC_Transactions\_SC_DepartmentReturnsVoucher.cshtml" />
     <Content Include="Views\Reports\Statistics\_ChargesWithoutInvoicesReport.cshtml" />
+    <Content Include="Views\Administration\Logs\_DynamicsCRMLog.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

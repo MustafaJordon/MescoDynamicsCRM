@@ -12,14 +12,12 @@ using System.Reflection;
 using Forwarding.MvcApp.Controllers.MasterData.API_Invoicing;
 using System.Windows.Ink;
 using Forwarding.MvcApp.Models.DynamicsCRM;
+using Forwarding.MvcApp.Models.PS.PS_Transactions.Generated;
+using Forwarding.MvcApp.Controllers.LocalEmails.LocalEmails;
+using Forwarding.MvcApp.Controllers.Administration.API_Security;
 
 namespace Forwarding.MvcApp.Controllers.DynamicsCRM
 {
-    public class ReturnedData
-    {
-        public string QuoteNumber { get; set; }
-        public int MainRouteID { get; set;}
-    }   //Returned data to Quotation.js
     public class DynamicsCRMController : ApiController
     {
         private string tenantID = "18628f3c-d584-4e0f-91cd-5a2f04a0d8cb";
@@ -850,10 +848,7 @@ namespace Forwarding.MvcApp.Controllers.DynamicsCRM
                             if (QuoteCostLines[i]["xollsp_commoditydescription"].ToString() != "")
                                 InsertQuotationContainersAndPackages(QuoteCostLines[i], Quotation[0]);
                         }
-                        ReturnedData returnedData = new ReturnedData();
-                        returnedData.MainRouteID = int.Parse(objCCustomizedDBCall.ExecuteQuery_Array($"select MAX(ID)ID from QuotationRoute")[0]);
-                        returnedData.QuoteNumber = Quotation[0]["xollsp_quotenumber"].ToString();
-                        return JsonConvert.SerializeObject(returnedData);
+                        return Data;
                     }
                     else return null;
                 }
@@ -869,30 +864,38 @@ namespace Forwarding.MvcApp.Controllers.DynamicsCRM
         {
             bool IsValidQuotation = true;
             string missingFields = "";
-            if (QuotationHeader["_xollsp_commoditygroup_value"].ToString() == "")
-            {
-                IsValidQuotation = false;
-                missingFields += "Commodity";
+            if (QuotationHeader["xollsp_importexport"] == null) //DirectionType
+                missingFields += "DirectionType-";
+            else if(QuotationHeader["xollsp_importexport"].ToString() == "300000001" && QuotationHeader["_xollsp_shipper_value"].ToString() == "" && QuotationHeader["_xollsp_customer_value"].ToString() == "")    //Shipper in case of export
+                missingFields += "Shipper-";
+            else if (QuotationHeader["xollsp_importexport"].ToString() == "300000000" && QuotationHeader["_xollsp_consignee_value"].ToString() == "" && QuotationHeader["_xollsp_customer_value"].ToString() == "")     //Consignee in case of import 
+                missingFields += "Consignee-";
+
+            if (QuotationHeader["xollsp_transporttype"] == null) missingFields += "TransportType-"; //TransportType
+            if (QuotationHeader["xollsp_loadtype"] == null) missingFields += "ShipmentType-";   //ShipmentType
+            if (QuotationHeader["_owningbusinessunit_value"].ToString() == "") missingFields += "Branch-";  //Branch
+            if (QuotationHeader["_owninguser_value"].ToString() == "") missingFields += "Salesman-";    //Salesman
+            if (QuotationHeader["createdon"].ToString() == "") missingFields += "OpenDate-";    //OpenDate
+            if (CostLines[0]["_xollsp_vendor_value"].ToString() == "" && CostLines[0]["_mesco_vendor2_value"].ToString() == "")     //AirLine-ShippingLine-Trucker
+                missingFields += "Line-";
+            if (QuotationHeader["_xollsp_from_value"].ToString() == "") missingFields += "POL-";    //POL
+            if (QuotationHeader["_xollsp_to_value"].ToString() == "") missingFields += "POD-";    //POD
+            if (QuotationHeader["_xollsp_incoterm_value"].ToString() == "") missingFields += "Incoterm-";    //Incoterm
+            //if (QuotationHeader["_xollsp_commoditygroup_value"].ToString() == "") missingFields += "Commodity-";    //Commodity
+
+            if (missingFields != "") IsValidQuotation = false;
+            if (!IsValidQuotation)
+            {   //Insert Into CRM Log if Quotation is not valid
+                InsertIntoCRMLog(2, QuotationHeader["xollsp_tariffquoteid"].ToString(), 0, missingFields, 0, 0);
+                var NotificationContent = new
+                {
+                    Subject = $"Quotation {QuotationHeader["xollsp_quotenumber"]} in Dynamics CRM Has missing Fields",
+                    Body = $"Quotation {QuotationHeader["xollsp_quotenumber"]} missing fields are {missingFields} For further info see Dynamics CRM Log report"
+                };
+                SendNotification(NotificationContent.Subject, NotificationContent.Body, 0);
             }
 
-            if (!IsValidQuotation)
-            {
-                //Insert into crmLog (StatusCode = 2)
-                var record = new CVarcrmLog()
-                {
-                    CreatedON = DateTime.Now,
-                    StatusCode = 2,
-                    crmQuotationID = QuotationHeader["xollsp_tariffquoteid"].ToString(),
-                    ForwardingQuotationID = 0,
-                    MissingFields = missingFields,
-                    UserID = 0,
-                    OperationID = 0
-                };
-                var recordList = new List<CVarcrmLog>();
-                recordList.Add(record);
-                var log = new CcrmLog();
-                log.SaveMethod(recordList);
-            }
+
             return IsValidQuotation;
         }
 
@@ -1084,21 +1087,7 @@ namespace Forwarding.MvcApp.Controllers.DynamicsCRM
                 objCCustomizedDBCall.CallStringFunction(InsertQuery);
                 id = objCCustomizedDBCall.ExecuteQuery_Array($"select MAX(ID)ID from Quotations")[0];
                 objCCustomizedDBCall.CallStringFunction($"insert into crmIDs(crmTableName,ForwardingTableName,crmID,ForwardingID) values('xollsp_tariffquotes','Quotations','{Quotation["xollsp_tariffquoteid"]}',{id})");
-                //Insert into crmLog (StatusCode = 1)
-                var record = new CVarcrmLog()
-                {
-                    CreatedON = DateTime.Now,
-                    StatusCode = 1,
-                    crmQuotationID = Quotation["xollsp_tariffquoteid"].ToString(),
-                    ForwardingQuotationID = int.Parse(id),
-                    MissingFields = "",
-                    UserID = 0,
-                    OperationID = 0
-                };
-                var recordList = new List<CVarcrmLog>();
-                recordList.Add(record);
-                var log = new CcrmLog();
-                log.SaveMethod(recordList);
+                InsertIntoCRMLog(1, Quotation["xollsp_tariffquoteid"].ToString(), int.Parse(id), "", 0, 0);
             }
             catch (Exception error)
             {
@@ -1270,6 +1259,13 @@ namespace Forwarding.MvcApp.Controllers.DynamicsCRM
             //Executing insert query
             try {
                 objCCustomizedDBCall.CallStringFunction(InsertQuery);
+                int id = int.Parse(objCCustomizedDBCall.ExecuteQuery_Array($"select MAX(ID)ID from QuotationRoute")[0].ToString());
+                var NotificationContent = new
+                {
+                    Subject = $"Quotation {QuotationHeader["xollsp_quotenumber"]} is added from Dynamics CRM",
+                    Body = $"Quotation {QuotationHeader["xollsp_quotenumber"]} is added from Dynamics CRM"
+                };
+                SendNotification(NotificationContent.Subject, NotificationContent.Body, id);
             }
             catch (Exception error)
             {
@@ -1533,6 +1529,31 @@ namespace Forwarding.MvcApp.Controllers.DynamicsCRM
                 Console.WriteLine(error.Message);
             }
 
+        }
+
+        private void InsertIntoCRMLog(int StatusCode, string crmQuotationID, int ForwardingQuotationID, string MissingFields, int UserID, int OperationID)
+        {
+            var record = new CVarcrmLog()
+            {
+                CreatedON = DateTime.Now,
+                StatusCode = StatusCode,
+                crmQuotationID = crmQuotationID,
+                ForwardingQuotationID = ForwardingQuotationID,
+                MissingFields = MissingFields,
+                UserID = UserID,
+                OperationID = OperationID
+            };
+            var recordList = new List<CVarcrmLog>();
+            recordList.Add(record);
+            var log = new CcrmLog();
+            log.SaveMethod(recordList);
+        }
+
+        private void SendNotification(string Subject,String Body, int QuotationRouteID)
+        {
+            var userIDs = new UsersController().LoadAllIDs(" WHERE 1=1");
+            var Alarm = new LocalEmailsController();
+            Alarm.SendEmail(userIDs,Subject,Body,QuotationRouteID,0,0,0,true,"0",80,false," Where 1=1",25,1, "ID DESC");
         }
     }
 }

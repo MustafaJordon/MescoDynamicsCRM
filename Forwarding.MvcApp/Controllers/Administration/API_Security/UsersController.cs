@@ -16,7 +16,7 @@ namespace Forwarding.MvcApp.Controllers.Administration.API_Security
     public class UsersController : ApiController
     {
         [HttpGet]
-        public object LoadAllIDs(string pWhereClause)
+        public string LoadAllIDs(string pWhereClause)
         {
             CvwUsers objCvwUsers = new CvwUsers();
             objCvwUsers.GetList(pWhereClause);
